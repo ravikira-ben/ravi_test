@@ -4,24 +4,6 @@
 	"parameters": {
 		"factoryName": {
 			"value": "ravi2"
-		},
-		"trigger2_freq": {
-			"value": "Day"
-		},
-		"trigger2_properties_typeProperties_recurrence_triggerSuffix": {
-			"value": 30
-		},
-		"trigger2_properties_typeProperties_recurrence_startTime": {
-			"value": "2025-06-02T06:25:00"
-		},
-		"trigger2_properties_typeProperties_recurrence_timeZone": {
-			"value": "India Standard Time"
-		},
-		"trigger4_properties_typeProperties_blobPathBeginsWith": {
-			"value": ""
-		},
-		"trigger4_properties_typeProperties_blobPathEndsWith": {
-			"value": ""
 		}
 	}
 }
