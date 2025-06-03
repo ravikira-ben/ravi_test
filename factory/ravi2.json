@@ -1,0 +1,9 @@
+{
+	"name": "ravi2",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d3a49511-9b5d-4faf-ad9a-7243a4c7910b",
+		"tenantId": "16b3c013-d300-468d-ac64-7eda0820b6d3"
+	}
+}
