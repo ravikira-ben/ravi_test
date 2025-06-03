@@ -1,0 +1,82 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ravi2"
+		},
+		"trigger2_freq": {
+			"type": "string",
+			"defaultValue": "Day"
+		},
+		"trigger2_properties_typeProperties_recurrence_triggerSuffix": {
+			"type": "int",
+			"defaultValue": 30
+		},
+		"trigger2_properties_typeProperties_recurrence_startTime": {
+			"type": "string",
+			"defaultValue": "2025-06-02T06:25:00"
+		},
+		"trigger2_properties_typeProperties_recurrence_timeZone": {
+			"type": "string",
+			"defaultValue": "India Standard Time"
+		},
+		"trigger4_properties_typeProperties_blobPathBeginsWith": {
+			"type": "string"
+		},
+		"trigger4_properties_typeProperties_blobPathEndsWith": {
+			"type": "string"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ravi2_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"trigger2_freq": {
+						"value": "[parameters('trigger2_freq')]"
+					},
+					"trigger2_properties_typeProperties_recurrence_triggerSuffix": {
+						"value": "[parameters('trigger2_properties_typeProperties_recurrence_triggerSuffix')]"
+					},
+					"trigger2_properties_typeProperties_recurrence_startTime": {
+						"value": "[parameters('trigger2_properties_typeProperties_recurrence_startTime')]"
+					},
+					"trigger2_properties_typeProperties_recurrence_timeZone": {
+						"value": "[parameters('trigger2_properties_typeProperties_recurrence_timeZone')]"
+					},
+					"trigger4_properties_typeProperties_blobPathBeginsWith": {
+						"value": "[parameters('trigger4_properties_typeProperties_blobPathBeginsWith')]"
+					},
+					"trigger4_properties_typeProperties_blobPathEndsWith": {
+						"value": "[parameters('trigger4_properties_typeProperties_blobPathEndsWith')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
