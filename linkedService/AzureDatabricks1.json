@@ -1,0 +1,18 @@
+{
+	"name": "AzureDatabricks1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "QA dth databricks",
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-3559253227183736.16.azuredatabricks.net",
+			"existingClusterId": "1213-171738-8fhg6rjo",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1ODQ1YWRhOC00ZDQ1LTRmNGEtOWU2MS1kN2NiY2MzZTYxYmYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "hreVMDEVIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

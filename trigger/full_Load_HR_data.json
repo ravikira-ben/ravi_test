@@ -1,0 +1,35 @@
+{
+	"name": "full_Load_HR_data",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "HRData_Pipeline_Full_load",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Week",
+				"interval": 1,
+				"startTime": "2025-05-05T08:19:00",
+				"timeZone": "Eastern Standard Time",
+				"schedule": {
+					"minutes": [
+						0
+					],
+					"hours": [
+						4
+					],
+					"weekDays": [
+						"Saturday"
+					]
+				}
+			}
+		}
+	}
+}
