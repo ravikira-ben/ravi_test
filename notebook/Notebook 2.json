@@ -1,0 +1,156 @@
+{
+	"name": "Notebook 2",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "MediumSparkPool",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "b0c306f3-e693-44fc-835d-f3c53b621dc6"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1"
+			},
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "python"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/b373690d-79d2-4528-9e24-846f3708777a/resourceGroups/dt555/providers/Microsoft.Synapse/workspaces/synapsedt555/bigDataPools/MediumSparkPool",
+				"name": "MediumSparkPool",
+				"type": "Spark",
+				"endpoint": "https://synapsedt555.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/MediumSparkPool",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.4",
+				"nodeCount": 3,
+				"cores": 8,
+				"memory": 56
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"tags": [
+						"parameters"
+					]
+				},
+				"source": [
+					"var KeyVaultName = \"keyvaultdt555\";\n",
+					"var KeyVaultLinkedService = \"keyvaultdt555\";\n",
+					"var ResourceGroupName = \"dt555\";\n",
+					"var StorageAccountLinkedService = \"BlobLinkedService\";\n",
+					"var ContainerName = \"storagecontainerdt555\";\n",
+					"var AccountName = \"storagedt555\";\n",
+					"val PipelineRunId = \"PipelineRunId\"\n",
+					"var tenantid = \"condeco111\"\n",
+					"val LoggingFlag = 1"
+				],
+				"outputs": [],
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "scala"
+					}
+				},
+				"source": [
+					"%%spark\n",
+					"spark.conf.set(\"AccountName\", AccountName.toString())\n",
+					"spark.conf.set(\"ContainerName\", ContainerName.toString())\n",
+					"spark.conf.set(\"PipelineRunId\", PipelineRunId.toString())\n",
+					"spark.conf.set(\"LoggingFlag\", LoggingFlag)\n",
+					"spark.conf.set(\"tenantid\", tenantid)"
+				],
+				"outputs": [],
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "scala"
+					}
+				},
+				"source": [
+					"%%spark\n",
+					"import com.microsoft.spark.sqlanalytics.utils.Constants\n",
+					"import org.apache.spark.sql.SqlAnalyticsConnector._\n",
+					"import org.apache.spark.sql.SparkSession\n",
+					"import org.apache.spark.sql.types._\n",
+					"import org.apache.spark.sql.SQLContext._\n",
+					"import org.apache.hadoop.fs.Path._\n",
+					"import org.apache.spark.util.SizeEstimator\n",
+					"import org.apache.spark.sql.types.StructType\n",
+					"import java.util.Calendar;\n",
+					"import java.text.SimpleDateFormat;\n",
+					"import org.apache.spark.{SparkConf,SparkContext}\n",
+					"import org.apache.spark.sql.functions.broadcast\n",
+					"import org.apache.spark.sql._\n",
+					"import org.apache.spark.sql.functions._\n",
+					"import org.apache.spark.sql.expressions.Window\n",
+					"import spark.sqlContext.implicits._\n",
+					"import org.apache.spark.sql.types.{StructType,StructField,StringType,IntegerType,TimestampType};\n",
+					"import java.time.LocalDateTime\n",
+					"import java.time.format.DateTimeFormatter\n",
+					"import java.util.Properties\n",
+					"import org.apache.spark.sql.SaveMode\n",
+					"import java.text.SimpleDateFormat\n",
+					"import java.util.Calendar\n",
+					"import org.apache.spark.sql.{DataFrame,Dataset,SparkSession}\n",
+					"import org.apache.spark.sql.Row\n",
+					"import com.microsoft.azure.synapse.tokenlibrary.TokenLibrary\n",
+					"import java.sql.DriverManager\n",
+					"import java.sql.Connection"
+				],
+				"outputs": [],
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					}
+				},
+				"source": [
+					"%%pyspark\n",
+					"from pyspark.sql.functions import *\n",
+					"from pyspark.sql.types import *\n",
+					"from pyspark.sql.window import *\n",
+					"from cryptography.fernet import Fernet\n",
+					"import html\n",
+					"import pandas as pd\n",
+					"import numpy as np\n",
+					"from datetime import datetime"
+				],
+				"outputs": [],
+				"execution_count": null
+			}
+		]
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"name": "MetaDataLinkedService",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"type": "AzureSqlDatabase",
+		"annotations": [],
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=serverdt555.database.windows.net;Initial Catalog=databasedt555",
+			"servicePrincipalId": "68b75542-7ad2-4e4e-9304-341eb1a86a03",
+			"servicePrincipalKey": {
+				"store": {
+					"type": "LinkedServiceReference",
+					"referenceName": "keyvaultdt555"
+				},
+				"secretName": "CaptureSecretKeyLinkedServices",
+				"type": "AzureKeyVaultSecret"
+			},
+			"tenant": "adb48caa-0b14-4256-b178-a5e508c807f5"
+		}
+	}
+}
